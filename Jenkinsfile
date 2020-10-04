@@ -2,13 +2,12 @@
 import groovy.json.JsonSlurperClassic
 node {
 
-    def props = readProperties  file: 'salesforce.properties'
-    def HUB_ORG=props['HUB_ORG_DH']
-    def SFDC_HOST =props['SFDC_HOST_DH'] 
-    def JWT_KEY_CRED_ID =props['JWT_CRED_ID_DH']
-    def CONNECTED_APP_CONSUMER_KEY=props['CONNECTED_APP_CONSUMER_KEY']
+    def HUB_ORG='cmduquer@curious-badger-6o45dw.com'
+    def SFDC_HOST ='https://login.salesforce.com'
+    def JWT_KEY_CRED_ID ='395ce5cc-458e-4304-8235-e157e4fa6c1e'
+    def CONNECTED_APP_CONSUMER_KEY='3MVG9l2zHsylwlpSP0BI46IF_2EJCzcrwmI0eBagNivGwKlsl0U2IaWJz1rMF4ISt0NfZ21D.G6h36rhR.mOn'
     def DEPLOYDIR='src'
-    def TEST_LEVEL=props['TEST_LEVEL']
+    def TEST_LEVEL='RunLocalTests'
 
 
     println 'KEY IS' 
