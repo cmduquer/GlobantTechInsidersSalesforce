@@ -1,0 +1,19 @@
+Pasos:
+
+Crear PlayGround
+Permitir DevHub
+Permitir Paquetes segunda Generación
+Autorizar la Instancia en sfdx
+Crear Proyecto sfdx
+Subir al repositorio
+Crear Rama Secundaria
+Crear Scratch Org (Verificar el Archivo project-scratch-def.json)
+
+
+Integración Continua
+
+
+Comandos
+
+sfdx force:auth:web:login -d -a DevHub //Autorizar la instancia DevHub
+sfdx force:org:create -s -f config/project-scratch-def.json -a scratchSprint //creación scratch
