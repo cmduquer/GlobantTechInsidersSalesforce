@@ -11,9 +11,18 @@ Crear Scratch Org (Verificar el Archivo project-scratch-def.json)
 
 
 Integración Continua
+Generar el certificado SSL usando Open SSL - https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm
+Crear una connected App, como lo muestra el flujo JWT-Based Authorization Flow
+https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ci_jenkins_config_env.htm
+https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_connected_app.htm
 
+sfdx force:auth:jwt:grant --clientid 3MVG9l2zHsylwlpSP0BI46IF_2EJCzcrwmI0eBagNivGwKlsl0U2IaWJz1rMF4ISt0NfZ21D.G6h36rhR.mOn --jwtkeyfile /Users/cmduquer/JWT/server.key --username cmduquer@curious-badger-6o45dw.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername
+395ce5cc-458e-4304-8235-e157e4fa6c1e
 
 Comandos
 
 sfdx force:auth:web:login -d -a DevHub //Autorizar la instancia DevHub
 sfdx force:org:create -s -f config/project-scratch-def.json -a scratchSprint //creación scratch
+java -jar jenkins.war --enable-future-java //run jenkins openjdk12
+localhost:8080// jenkins
+
