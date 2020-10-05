@@ -22,9 +22,29 @@ node {
     }
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
-        stage('Deploye Code') {
+        stage('Auth') {
 			rc = sh returnStatus: true, script: "/usr/local/bin/sfdx force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"  
-            println('Hello from a Job DSL script!')
+            if (rc != 0) { error 'hub org authorization failed' }
+
+			println rc
         }
+
+        stage('jestTests') {
+                rc = sh returnStatus: true, script: 'npm install'
+                println rc
+            }
+        
+        stage('Deploy') {
+                rc = sh returnStatus: true, script: "/usr/local/bin/sfdx force:source:convert -r force-app -d src -x src/package.xml"
+                if (rc != 0) { 
+                    error 'Deploy failed' 
+                } else {
+                    rc = sh returnStatus: true, script: "/usr/local/bin/sfdx force:mdapi:deploy -d src/ --targetusername ${HUB_ORG} -w -1 -l ${TEST_LEVEL}"
+                    if (rc != 0) { 
+                        error 'Deploy failed' 
+                    }
+                }
+                println rc
+            }
     }
 }

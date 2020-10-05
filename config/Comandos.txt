@@ -30,3 +30,7 @@ sfdx force:org:create -s -f config/project-scratch-def.json -a scratchSprint //c
 java -jar jenkins.war --enable-future-java //run jenkins openjdk12
 localhost:8080// jenkins
 
+
+sfdx force:source:convert -r force-app -d src -x src/package.xml
+
+sfdx force:mdapi:deploy -d src/ -u DevHub -w -1 -l RunLocalTests  --checkonly
