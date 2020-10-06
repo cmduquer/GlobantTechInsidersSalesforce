@@ -32,6 +32,13 @@ node {
         stage('jestTests') {
                 rc = sh returnStatus: true, script: 'npm install'
                 println rc
+                rc = sh returnStatus: true, script: 'npm run test:unit'
+                if (rc != 0) { 
+                    error 'Deploy failed' 
+                } else {
+                    rc = sh returnStatus: true, script: 'npm run test:unit:coverage'
+                    println rc
+                }
             }
         
         stage('Deploy') {

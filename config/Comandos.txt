@@ -19,9 +19,7 @@ https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_de
 sfdx force:auth:jwt:grant --clientid 3MVG9l2zHsylwlpSP0BI46IF_2EJCzcrwmI0eBagNivGwKlsl0U2IaWJz1rMF4ISt0NfZ21D.G6h36rhR.mOn --jwtkeyfile /Users/cmduquer/JWT/server.key --username cmduquer@curious-badger-6o45dw.com --instanceurl https://login.salesforce.com --setdefaultdevhubusername
 395ce5cc-458e-4304-8235-e157e4fa6c1e
 
-/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/bin/java -jar 
-GlobantTechInsidersSalesforce/ ssl/
-jenkins.war 
+/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/bin/java -jar jenkins.war 
 
 Comandos
 
