@@ -12,6 +12,7 @@
   <types>
     <name>CustomField</name>
     <members>Account.Test__c</members>
+    <members>Account.TextDemo__c</members>
   </types>
   <version>49.0</version>
 </Package>
